@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--
+ Program name: thankyou.html
+ Author: [Your Full Name as it appears on the UH roster]
+ Date created: [MM/DD/YYYY]
+ Date last edited: [MM/DD/YYYY]
+ Version: 1.0
+ Description: Confirmation page shown after a patient submits the
+              registration form. Reuses the same banner/footer/CSS.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link href="style.css" rel="stylesheet">
+  <title>Thank You | [Your Clinic Name]</title>
+</head>
+<body>
+
+<!-- ============ BANNER DIVISION (top) - same as patient-form.html ============ -->
+<div class="banner">
+  <table width="100%">
+    <tr>
+      <td valign="middle" align="left" width="20%">
+        <img src="logo.svg" alt="[Your Clinic Name] logo" width="70" id="logo">
+      </td>
+      <td valign="middle" align="center">
+        <h1>[Your Clinic Name] Medical</h1>
+      </td>
+      <td valign="middle" align="right" width="25%">
+        <p id="today-label">Today is: <span id="today"></span></p>
+        <script>
+          var d = new Date();
+          var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+          var months = ["January","February","March","April","May","June","July",
+                        "August","September","October","November","December"];
+          var dateText = days[d.getDay()] + ", " + months[d.getMonth()] + " " +
+                         d.getDate() + ", " + d.getFullYear();
+          document.getElementById("today").innerHTML = dateText;
+        </script>
+      </td>
+    </tr>
+  </table>
+</div>
+<hr>
+
+<!-- ============ MAIN CONTENT DIVISION (middle) ============ -->
+<div class="main-content">
+  <center>
+    <h1>Thank you for registering!</h1>
+    <p>Your information has been received. A member of our staff will contact you shortly.</p>
+  </center>
+</div>
+
+<!-- ============ FOOTER DIVISION (bottom) - same as patient-form.html ============ -->
+<div class="footer">
+  <p>&#169; 2026 [Your Clinic Name] Medical &nbsp;|&nbsp;
+     <a href="mailto:contact@yourclinic.com">Contact Us</a></p>
+</div>
+
+</body>
+</html>

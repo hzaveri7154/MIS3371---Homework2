@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<!--
+ Program name: patient-form.html
+ Author: [Your Full Name as it appears on the UH roster]
+ Date created: [MM/DD/YYYY]
+ Date last edited: [MM/DD/YYYY]
+ Version: 1.0
+ Description: New patient registration form for MIS 3371 Homework 1.
+              Captures demographic data and creates a patient portal account.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- External stylesheet - all styling lives in style.css, not here -->
+  <link href="style.css" rel="stylesheet">
+  <title>New Patient Registration | [Your Clinic Name]</title>
+</head>
+<body>
+
+<!-- ============ BANNER DIVISION (top) ============ -->
+<div class="banner">
+  <table width="100%">
+    <tr>
+      <td valign="middle" align="left" width="20%">
+        <!-- Logo image must be uploaded to the SAME folder as this file -->
+        <img src="logo.svg" alt="[Your Clinic Name] logo" width="70" id="logo">
+      </td>
+      <td valign="middle" align="center">
+        <h1>[Your Clinic Name] Medical</h1>
+      </td>
+      <td valign="middle" align="right" width="25%">
+        <p id="today-label">Today is: <span id="today"></span></p>
+        <!-- Inline JavaScript: dynamically prints today's day and date -->
+        <script>
+          var d = new Date();
+          var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+          var months = ["January","February","March","April","May","June","July",
+                        "August","September","October","November","December"];
+          var dateText = days[d.getDay()] + ", " + months[d.getMonth()] + " " +
+                         d.getDate() + ", " + d.getFullYear();
+          document.getElementById("today").innerHTML = dateText;
+        </script>
+      </td>
+    </tr>
+  </table>
+</div>
+<hr>
+
+<!-- ============ MAIN CONTENT DIVISION (middle) ============ -->
+<div class="main-content">
+<form action="thankyou.html">
+<center>
+<table class="form-table">
+
+  <!-- ===== Personal Information ===== -->
+  <tr><th colspan="4">Create Patient Portal Account</th></tr>
+
+  <tr>
+    <td><label for="fname">First Name:</label></td>
+    <td><input type="text" id="fname" name="fname" maxlength="30" required
+               title="Please enter your first name" placeholder="John"></td>
+    <td><label for="minit">M.I.:</label></td>
+    <td><input type="text" id="minit" name="minit" maxlength="1" title="Middle initial"></td>
+  </tr>
+  <tr>
+    <td><label for="lname">Last Name:</label></td>
+    <td colspan="3"><input type="text" id="lname" name="lname" maxlength="30" required
+               title="Please enter your last name" placeholder="Smith"></td>
+  </tr>
+
+  <!-- Radio group #1: Gender -->
+  <tr>
+    <td>Gender:</td>
+    <td colspan="3">
+      <input type="radio" id="gender1" name="pgender" value="Male"><label for="gender1">Male</label>
+      <input type="radio" id="gender2" name="pgender" value="Female"><label for="gender2">Female</label>
+      <input type="radio" id="gender3" name="pgender" value="Other"><label for="gender3">Other</label>
+    </td>
+  </tr>
+
+  <tr>
+    <td><label for="dob">Date of Birth:</label></td>
+    <td colspan="3"><input type="date" id="dob" name="dob" required title="MM/DD/YYYY"></td>
+  </tr>
+
+  <!-- SSN is masked using type="password" -->
+  <tr>
+    <td><label for="ssn">Social Security #:</label></td>
+    <td colspan="3"><input type="password" id="ssn" name="ssn" minlength="9" maxlength="11" required
+               title="Do not use a real SSN - this is for testing only" placeholder="123-45-6789"></td>
+  </tr>
+
+  <tr>
+    <td><label for="email">Email Address:</label></td>
+    <td colspan="3"><input type="email" id="email" name="email" size="40" required
+               placeholder="name@domain.com"></td>
+  </tr>
+
+  <!-- ===== Address ===== -->
+  <tr>
+    <td><label for="address1">Address Line 1:</label></td>
+    <td colspan="3"><input type="text" id="address1" name="address1" maxlength="30" required
+               placeholder="1234 Main St"></td>
+  </tr>
+  <tr>
+    <td><label for="address2">Address Line 2:</label></td>
+    <td colspan="3"><input type="text" id="address2" name="address2" maxlength="30"
+               placeholder="Apt, suite, etc. (optional)"></td>
+  </tr>
+
+  <!-- City, State, Zip on related rows -->
+  <tr>
+    <td><label for="city">City:</label></td>
+    <td><input type="text" id="city" name="city" maxlength="30" required placeholder="Houston"></td>
+    <td><label for="state">State:</label></td>
+    <td>
+      <select id="state" name="state" required>
+        <option selected disabled>Please Select One</option>
+        <option value="AL">Alabama</option>
+        <option value="AK">Alaska</option>
+        <option value="AZ">Arizona</option>
+        <option value="AR">Arkansas</option>
+        <option value="CA">California</option>
+        <option value="CO">Colorado</option>
+        <option value="CT">Connecticut</option>
+        <option value="DE">Delaware</option>
+        <option value="DC">District of Columbia</option>
+        <option value="FL">Florida</option>
+        <option value="GA">Georgia</option>
+        <option value="HI">Hawaii</option>
+        <option value="ID">Idaho</option>
+        <option value="IL">Illinois</option>
+        <option value="IN">Indiana</option>
+        <option value="IA">Iowa</option>
+        <option value="KS">Kansas</option>
+        <option value="KY">Kentucky</option>
+        <option value="LA">Louisiana</option>
+        <option value="ME">Maine</option>
+        <option value="MD">Maryland</option>
+        <option value="MA">Massachusetts</option>
+        <option value="MI">Michigan</option>
+        <option value="MN">Minnesota</option>
+        <option value="MS">Mississippi</option>
+        <option value="MO">Missouri</option>
+        <option value="MT">Montana</option>
+        <option value="NE">Nebraska</option>
+        <option value="NV">Nevada</option>
+        <option value="NH">New Hampshire</option>
+        <option value="NJ">New Jersey</option>
+        <option value="NM">New Mexico</option>
+        <option value="NY">New York</option>
+        <option value="NC">North Carolina</option>
+        <option value="ND">North Dakota</option>
+        <option value="OH">Ohio</option>
+        <option value="OK">Oklahoma</option>
+        <option value="OR">Oregon</option>
+        <option value="PA">Pennsylvania</option>
+        <option value="RI">Rhode Island</option>
+        <option value="SC">South Carolina</option>
+        <option value="SD">South Dakota</option>
+        <option value="TN">Tennessee</option>
+        <option value="TX">Texas</option>
+        <option value="UT">Utah</option>
+        <option value="VT">Vermont</option>
+        <option value="VA">Virginia</option>
+        <option value="WA">Washington</option>
+        <option value="WV">West Virginia</option>
+        <option value="WI">Wisconsin</option>
+        <option value="WY">Wyoming</option>
+        <option value="DC">District of Columbia</option>
+        <option value="PR">Puerto Rico</option>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <td><label for="zip">Zip Code:</label></td>
+    <td colspan="3"><input type="text" id="zip" name="zip" minlength="5" maxlength="10" required
+               pattern="[0-9]{5}(-[0-9]{4})?" title="5 to 10 digits" placeholder="77089"></td>
+  </tr>
+
+  <!-- ===== Medical History ===== -->
+  <tr><th colspan="4">Medical History</th></tr>
+
+  <tr>
+    <td><label for="reason">Reason for Visit:</label></td>
+    <td colspan="3">
+      <textarea id="reason" name="reason" rows="3" cols="50" required
+                placeholder="Describe your current symptoms..."></textarea>
+    </td>
+  </tr>
+
+  <!-- Checkbox group (5 options) -->
+  <tr>
+    <td>Have you ever had:</td>
+    <td colspan="3">
+      <input type="checkbox" id="cond1" name="conditions" value="Chicken Pox"><label for="cond1">Chicken Pox</label>
+      <input type="checkbox" id="cond2" name="conditions" value="Measles"><label for="cond2">Measles</label>
+      <input type="checkbox" id="cond3" name="conditions" value="Covid-19"><label for="cond3">Covid-19</label>
+      <input type="checkbox" id="cond4" name="conditions" value="Small Pox"><label for="cond4">Small Pox</label>
+      <input type="checkbox" id="cond5" name="conditions" value="Tetanus"><label for="cond5">Tetanus</label>
+    </td>
+  </tr>
+
+  <!-- Radio group #2: Vaccination -->
+  <tr>
+    <td>Have you been vaccinated?</td>
+    <td colspan="3">
+      <input type="radio" id="vac1" name="vaccinated" value="Yes"><label for="vac1">Yes</label>
+      <input type="radio" id="vac2" name="vaccinated" value="No"><label for="vac2">No</label>
+    </td>
+  </tr>
+
+  <!-- Radio group #3: Insurance -->
+  <tr>
+    <td>Do you have insurance?</td>
+    <td colspan="3">
+      <input type="radio" id="ins1" name="insurance" value="Yes"><label for="ins1">Yes</label>
+      <input type="radio" id="ins2" name="insurance" value="No"><label for="ins2">No</label>
+    </td>
+  </tr>
+
+  <!-- Slider -->
+  <tr>
+    <td class="td1"><label for="range">How is your health?<br>(1 = poor, 10 = excellent)</label></td>
+    <td colspan="3">
+      <input type="range" id="range" name="range" min="1" max="10" value="5">
+      <span id="range-output">5</span>
+      <script>
+        var slider = document.getElementById("range");
+        var output = document.getElementById("range-output");
+        slider.oninput = function () { output.innerHTML = this.value; };
+      </script>
+    </td>
+  </tr>
+
+  <!-- ===== Portal Account ===== -->
+  <tr><th colspan="4">Portal Account Setup</th></tr>
+
+  <tr>
+    <td><label for="uid">Desired User ID:</label></td>
+    <td colspan="3"><input type="text" id="uid" name="uid" maxlength="20" required
+               title="20 characters max" placeholder="jsmith01"></td>
+  </tr>
+  <tr>
+    <td><label for="pword">Password:</label></td>
+    <td colspan="3"><input type="password" id="pword" name="pword" minlength="10" required></td>
+  </tr>
+  <tr>
+    <td><label for="pword2">Re-enter Password:</label></td>
+    <td colspan="3"><input type="password" id="pword2" name="pword2" minlength="10" required></td>
+  </tr>
+
+  <tr>
+    <td colspan="4">
+      <center>
+        <input type="reset" value="CLEAR AND START OVER">
+        <input type="submit" value="Submit">
+      </center>
+    </td>
+  </tr>
+
+</table>
+</center>
+</form>
+</div>
+
+<!-- ============ FOOTER DIVISION (bottom) ============ -->
+<div class="footer">
+  <p>&#169; 2026 [Your Clinic Name] Medical &nbsp;|&nbsp;
+     <a href="mailto:contact@yourclinic.com">Contact Us</a></p>
+</div>
+
+</body>
+</html>
