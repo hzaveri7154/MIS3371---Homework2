@@ -1,0 +1,284 @@
+/* =====================================================
+   Zaveri's Clinic — Homework 2 styles
+   Palette: deep teal + warm cream + soft coral accents
+   ===================================================== */
+
+:root {
+  --teal: #2C6E63;
+  --teal-dark: #1F4F47;
+  --cream: #F7F3EC;
+  --sage: #DCE8E2;
+  --coral: #C9543F;
+  --ink: #2B2B2B;
+  --line: #C7D6D0;
+}
+
+/* ---- tag selectors ---- */
+body {
+  margin: 0;
+  font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+  color: var(--ink);
+  background: var(--cream);
+}
+
+h1, h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--teal-dark);
+  margin: 0;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+fieldset {
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  margin: 0 0 22px 0;
+  padding: 14px 18px 18px;
+  background: #FFFFFF;
+}
+
+legend {
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--teal);
+  font-weight: bold;
+  padding: 0 8px;
+}
+
+/* ---- id selectors ---- */
+#banner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--teal);
+  padding: 18px 28px;
+  color: var(--cream);
+}
+
+#footer {
+  background: var(--teal-dark);
+  color: var(--sage);
+  text-align: center;
+  padding: 14px 10px;
+  font-size: 0.85em;
+  margin-top: 30px;
+}
+
+#reviewArea {
+  background: #FFFFFF;
+  border: 2px solid var(--teal);
+  border-radius: 6px;
+  padding: 18px 24px;
+  margin-top: 26px;
+}
+
+.review-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* ---- class selectors ---- */
+.banner-text .tagline {
+  margin: 2px 0 0;
+  font-size: 0.95em;
+  color: var(--sage);
+}
+
+.banner-logo {
+  height: 52px;
+  width: 52px;
+}
+
+.page-wrap {
+  max-width: 760px;
+  margin: 26px auto;
+  padding: 0 18px 40px;
+}
+
+.block td:first-child {
+  width: 44%;
+  vertical-align: top;
+  padding: 7px 10px 7px 0;
+  font-weight: 600;
+}
+
+.block td:last-child {
+  padding: 6px 0;
+}
+
+.form-table tr {
+  border-bottom: 1px solid var(--sage);
+}
+
+.checkbox-table td {
+  width: 50%;
+  font-weight: normal;
+  padding: 4px 0;
+}
+
+.groupLabel {
+  font-weight: 600;
+  margin: 16px 0 6px;
+  color: var(--teal-dark);
+}
+
+.radioRow label {
+  margin-right: 18px;
+  font-weight: normal;
+}
+
+.errMsg {
+  display: inline-block;
+  color: var(--coral);
+  font-size: 0.85em;
+  margin-left: 8px;
+}
+
+.errMsg.ok {
+  color: var(--teal);
+}
+
+.pwd-checklist {
+  display: none;
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 8px 12px;
+  background: var(--sage);
+  border-radius: 6px;
+  font-size: 0.82em;
+  max-width: 320px;
+}
+
+.pwd-checklist.show {
+  display: block;
+}
+
+.pwd-checklist li {
+  color: var(--coral);
+  padding: 1px 0;
+}
+
+.pwd-checklist li::before {
+  content: "✗  ";
+}
+
+.pwd-checklist li.met {
+  color: var(--teal-dark);
+}
+
+.pwd-checklist li.met::before {
+  content: "✓  ";
+}
+
+.button-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.review-table td {
+  padding: 5px 14px;
+  border-bottom: 1px solid var(--sage);
+  vertical-align: top;
+}
+
+.review-table .rowLabel {
+  font-weight: 600;
+  width: 38%;
+  color: var(--teal-dark);
+}
+
+.review-pass {
+  color: var(--teal);
+  font-weight: 600;
+}
+
+.review-fail {
+  color: var(--coral);
+  font-weight: 600;
+}
+
+/* ---- attribute selectors ---- */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+input[type="date"],
+select,
+textarea {
+  font: inherit;
+  padding: 6px 8px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  width: 100%;
+  max-width: 320px;
+  box-sizing: border-box;
+}
+
+input[type="range"] {
+  width: 100%;
+  max-width: 420px;
+  accent-color: var(--teal);
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: 2px solid var(--coral);
+  outline-offset: 1px;
+}
+
+button[type="submit"] {
+  background: var(--teal);
+  color: #fff;
+  border: none;
+  padding: 9px 22px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button[type="button"] {
+  background: var(--sage);
+  color: var(--teal-dark);
+  border: none;
+  padding: 9px 22px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button[type="reset"] {
+  background: transparent;
+  color: var(--coral);
+  border: 1px solid var(--coral);
+  padding: 9px 22px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+#clearReviewBtn {
+  background: transparent;
+  color: var(--teal-dark);
+  border: 1px solid var(--teal);
+  padding: 4px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85em;
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .block td,
+  .block td:first-child,
+  .block td:last-child {
+    display: block;
+    width: 100%;
+  }
+}

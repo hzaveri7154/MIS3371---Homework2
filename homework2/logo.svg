@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Zaveri's Clinic logo">
+  <circle cx="32" cy="32" r="30" fill="#2C6E63"/>
+  <path d="M32 14 C 24 14, 18 20, 18 28 C 18 36, 24 40, 32 50 C 40 40, 46 36, 46 28 C 46 20, 40 14, 32 14 Z"
+        fill="#F7F3EC" opacity="0.92"/>
+  <text x="32" y="35" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+        font-size="20" font-weight="bold" fill="#2C6E63">Z</text>
+</svg>

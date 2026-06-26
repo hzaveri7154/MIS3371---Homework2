@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zaveri's Clinic &mdash; Patient Registration (Homework 2)</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="banner" class="banner">
+  <img src="logo.svg" alt="Zaveri's Clinic logo" class="banner-logo">
+  <div class="banner-text">
+    <h1>Zaveri's Clinic</h1>
+    <p class="tagline">Patient Registration &mdash; Homework 2</p>
+  </div>
+</div>
+
+<main class="page-wrap">
+
+  <form id="regForm" novalidate>
+
+    <!-- ============ BLOCK 1: PERSONAL INFO ============ -->
+    <fieldset class="block">
+      <legend>Personal Information</legend>
+      <table class="form-table">
+        <tr>
+          <td><label for="firstName">First Name</label></td>
+          <td>
+            <input type="text" id="firstName" name="firstName" required
+                   minlength="1" maxlength="30" pattern="[A-Za-z'\-]{1,30}"
+                   title="1 to 30 characters. Letters, apostrophes, and dashes only.">
+            <span class="errMsg" id="err-firstName"></span>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="mi">M.I.</label></td>
+          <td>
+            <input type="text" id="mi" name="mi" maxlength="1"
+                   pattern="[A-Za-z]?"
+                   title="One letter only. Leave blank if you have no middle initial.">
+            <span class="errMsg" id="err-mi"></span>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="lastName">Last Name</label></td>
+          <td>
+            <input type="text" id="lastName" name="lastName" required
+                   minlength="1" maxlength="30" pattern="[A-Za-z2-5'\-]{1,30}"
+                   title="1 to 30 characters. Letters, apostrophes, dashes, and the digits 2-5 only (e.g. 'the 3rd').">
+            <span class="errMsg" id="err-lastName"></span>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="dob">Date of Birth</label></td>
+          <td>
+            <input type="date" id="dob" name="dob" required
+                   title="Required. Cannot be in the future and cannot be more than 120 years ago.">
+            <span class="errMsg" id="err-dob"></span>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="apptDate">Preferred Appointment Date</label></td>
+          <td>
+            <input type="date" id="apptDate" name="apptDate" required
+                   title="Required. Must be today or a future date.">
+            <span class="errMsg" id="err-apptDate"></span>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="insDate">Insurance Effective Date</label></td>
+          <td>
+            <input type="date" id="insDate" name="insDate" required
+                   title="Required. Must be today or a future date.">
+            <span class="errMsg" id="err-insDate"></span>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="patientId">Patient ID # (SSN)</label></td>
+          <td>
+            <input type="password" id="patientId" name="patientId" required
+                   pattern="\d{3}-?\d{2}-?\d{4}" maxlength="11"
+                   title="Required, 9 digits. Format 123-45-6789 or 123456789. Hidden as you type.">
+            <span class="errMsg" id="err-patientId"></span>
+          </td>
+        </tr>
+      </table>
+    </fieldset>
+
+    <!-- ============ BLOCK 2: CONTACT INFO ============ -->
+    <fieldset class="block">
+      <legend>Contact Information</legend>
+      <table class="form-table">
+        <tr>
+          <td><label for="email">Email Address</label></td>
+          <td>
+            <input type="email" id="email" name="email" required
+                   pattern="[^\s@&quot;]+@[^\s@&quot;]+\.[A-Za-z]{2,}"
+                   title="Required. Format: name@domain.tld">
+            <span class="errMsg" id="err-email"></span>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="phone">Phone Number</label></td>
+          <td>
+            <input type="tel" id="phone" name="phone" required
+                   pattern="\d{3}-\d{3}-\d{4}" placeholder="713-555-0100"
+                   title="Required. Format: 000-000-0000">
+            <span class="errMsg" id="err-phone"></span>
+          </td>
+        </tr>
+      </table>
+    </fieldset>
+
+    <!-- ============ BLOCK 3: ADDRESS ============ -->
+    <fieldset class="block">
+      <legend>Address</legend>
+      <table class="form-table">
+        <tr>
+          <td><label for="addr1">Address Line 1</label></td>
+          <td>
+            <input type="text" id="addr1" name="addr1" required
+                   minlength="2" maxlength="30"
+                   title="Required. 2 to 30 characters.">
+            <span class="errMsg" id="err-addr1"></span>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="addr2">Address Line 2</label></td>
+          <td>
+            <input type="text" id="addr2" name="addr2"
+                   minlength="2" maxlength="30"
+                   title="Optional. If entered, must be 2 to 30 characters.">
+            <span class="errMsg" id="err-addr2"></span>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="city">City</label></td>
+          <td>
+            <input type="text" id="city" name="city" required
+                   minlength="2" maxlength="30"
+                   title="Required. 2 to 30 characters.">
+            <span class="errMsg" id="err-city"></span>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="state">State</label></td>
+          <td>
+            <select id="state" name="state" required title="Required. Choose your state, DC, or PR.">
+              <option value="">-- Select State --</option>
+            </select>
+            <span class="errMsg" id="err-state"></span>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="zip">Zip Code</label></td>
+          <td>
+            <input type="text" id="zip" name="zip" required
+                   pattern="\d{5}(-\d{4})?" maxlength="10"
+                   title="Required. 5 digits, or Zip+4 like 77002-1234 (will be shortened to 5 digits on review).">
+            <span class="errMsg" id="err-zip"></span>
+          </td>
+        </tr>
+      </table>
+    </fieldset>
+
+    <!-- ============ BLOCK 4: CHOICES ============ -->
+    <fieldset class="block">
+      <legend>Health &amp; Visit Information</legend>
+
+      <p class="groupLabel" title="Check every condition that applies to you.">
+        Check all of the following that apply to you:
+      </p>
+      <table class="form-table checkbox-table">
+        <tr>
+          <td><label><input type="checkbox" name="conditions" value="ChickenPox"> Chicken Pox</label></td>
+          <td><label><input type="checkbox" name="conditions" value="Measles"> Measles</label></td>
+        </tr>
+        <tr>
+          <td><label><input type="checkbox" name="conditions" value="Covid19"> COVID-19</label></td>
+          <td><label><input type="checkbox" name="conditions" value="Diabetes"> Diabetic</label></td>
+        </tr>
+        <tr>
+          <td><label><input type="checkbox" name="conditions" value="HeartDisease"> Heart Disease</label></td>
+          <td><label><input type="checkbox" name="conditions" value="Allergies"> Seasonal Allergies</label></td>
+        </tr>
+      </table>
+
+      <p class="groupLabel" title="Choose one option that best describes your insurance status.">
+        Insurance status:
+      </p>
+      <span class="radioRow">
+        <label><input type="radio" name="insurance" value="Insured" required title="Choose one"> Insured</label>
+        <label><input type="radio" name="insurance" value="Uninsured" title="Choose one"> Uninsured</label>
+        <label><input type="radio" name="insurance" value="Unsure" title="Choose one"> Unsure</label>
+      </span>
+      <span class="errMsg" id="err-insurance"></span>
+
+      <p class="groupLabel" title="Have you been vaccinated?">
+        Vaccination status:
+      </p>
+      <span class="radioRow">
+        <label><input type="radio" name="vaccinated" value="Fully" required title="Choose one"> Fully Vaccinated</label>
+        <label><input type="radio" name="vaccinated" value="Partially" title="Choose one"> Partially Vaccinated</label>
+        <label><input type="radio" name="vaccinated" value="No" title="Choose one"> Not Vaccinated</label>
+      </span>
+      <span class="errMsg" id="err-vaccinated"></span>
+
+      <p class="groupLabel" title="Let us know what kind of visit this is.">
+        Visit type:
+      </p>
+      <span class="radioRow">
+        <label><input type="radio" name="visitType" value="New" required title="Choose one"> New Patient</label>
+        <label><input type="radio" name="visitType" value="Returning" title="Choose one"> Returning Patient</label>
+        <label><input type="radio" name="visitType" value="Unsure" title="Choose one"> Unsure</label>
+      </span>
+      <span class="errMsg" id="err-visitType"></span>
+
+      <p class="groupLabel" title="Slide to indicate your household income, used to check sliding-scale fee eligibility.">
+        Annual household income (for sliding-scale fee eligibility):
+        <strong id="incomeDisplay">$60,000</strong>
+      </p>
+      <input type="range" id="incomeSlider" name="incomeSlider"
+             min="20000" max="200000" step="1000" value="60000"
+             title="Drag to set your approximate annual household income, from $20,000 to $200,000.">
+
+      <p class="groupLabel" title="Optional. Briefly describe any current symptoms.">
+        <label for="symptoms">Describe any current symptoms (optional):</label>
+      </p>
+      <textarea id="symptoms" name="symptoms" rows="3" cols="50"
+                title="Optional. Please avoid using double-quote characters."></textarea>
+      <span class="errMsg" id="err-symptoms"></span>
+    </fieldset>
+
+    <!-- ============ BLOCK 5: ACCOUNT ============ -->
+    <fieldset class="block">
+      <legend>Account Setup</legend>
+      <table class="form-table">
+        <tr>
+          <td><label for="userId">Desired User ID</label></td>
+          <td>
+            <input type="text" id="userId" name="userId" required
+                   minlength="5" maxlength="30" pattern="[A-Za-z][A-Za-z0-9_\-]{4,29}"
+                   title="Required. 5 to 30 characters, must start with a letter, then letters/numbers/underscore/dash only, no spaces. Will be saved in lowercase.">
+            <span class="errMsg" id="err-userId"></span>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="password">Password</label></td>
+          <td>
+            <input type="password" id="password" name="password" required
+                   minlength="8" maxlength="30"
+                   pattern="(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#%^&amp;*()\-_+=\\/&gt;&lt;.,`~])[^&quot;]{8,30}"
+                   title="Required. 8-30 characters with at least 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character (no quote marks). Cannot contain your name or User ID.">
+            <span class="errMsg" id="err-password"></span>
+            <ul class="pwd-checklist" id="pwdChecklist">
+              <li id="pwReq-length">8 to 30 characters</li>
+              <li id="pwReq-upper">1 uppercase letter</li>
+              <li id="pwReq-lower">1 lowercase letter</li>
+              <li id="pwReq-digit">1 number</li>
+              <li id="pwReq-special">1 special character</li>
+              <li id="pwReq-noid">Doesn't contain your name or User ID</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><label for="password2">Re-enter Password</label></td>
+          <td>
+            <input type="password" id="password2" name="password2" required
+                   minlength="8" maxlength="30"
+                   title="Required. Must exactly match the Password field above.">
+            <span class="errMsg" id="err-password2"></span>
+          </td>
+        </tr>
+      </table>
+    </fieldset>
+
+    <div class="button-row">
+      <button type="button" id="reviewBtn" title="Show a summary of everything you've entered so far">Review</button>
+      <button type="submit" id="submitBtn" title="Validate and submit the form">Submit</button>
+      <button type="reset" id="startOverBtn" title="Clear the form and start over">Start Over</button>
+    </div>
+  </form>
+
+  <!-- ============ REVIEW AREA (div/span, same page) ============ -->
+  <div id="reviewArea" class="review-area" hidden>
+    <div class="review-header">
+      <h2>PLEASE REVIEW THIS INFORMATION</h2>
+      <button type="button" id="clearReviewBtn" title="Hide this review summary">Clear Review</button>
+    </div>
+    <table id="reviewTable" class="review-table">
+      <tbody><!-- filled in dynamically by script.js --></tbody>
+    </table>
+  </div>
+
+</main>
+
+<div id="footer" class="footer">
+  <p>&copy; <span id="year"></span> Zaveri's Clinic &mdash; MIS 3371 Homework 2 coursework. Not a real medical provider.</p>
+</div>
+
+<script src="states.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

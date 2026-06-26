@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank You &mdash; Zaveri's Clinic</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="banner" class="banner">
+  <img src="logo.svg" alt="Zaveri's Clinic logo" class="banner-logo">
+  <div class="banner-text">
+    <h1>Zaveri's Clinic</h1>
+    <p class="tagline">Patient Registration &mdash; Homework 2</p>
+  </div>
+</div>
+
+<main class="page-wrap">
+  <h2 id="thankYouMsg">Thank you for registering!</h2>
+  <p>Your information has been submitted. Our staff will reach out to confirm your appointment.</p>
+  <p><a href="patient-form.html">&larr; Back to the registration form</a></p>
+</main>
+
+<div id="footer" class="footer">
+  <p>&copy; <span id="year"></span> Zaveri's Clinic &mdash; MIS 3371 Homework 2 coursework. Not a real medical provider.</p>
+</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const params = new URLSearchParams(window.location.search);
+  const name = params.get('name');
+  if (name) {
+    document.getElementById('thankYouMsg').textContent = 'Thank you for registering, ' + name + '!';
+  }
+</script>
+</body>
+</html>
